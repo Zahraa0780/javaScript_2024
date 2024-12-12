@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>T10 - Greet the User</title>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+  // Task 10: Probability of dice sum
+    const diceCount = parseInt(prompt("How many dice?"));
+    const targetSum = parseInt(prompt("What sum of dice eyes?"));
+    const simulations = 10000;
+    let successCount = 0;
+    for (let i = 0; i < simulations; i++) {
+      let currentSum = 0;
+      for (let j = 0; j < diceCount; j++) {
+        currentSum += Math.floor(Math.random() * 6) + 1;
+      }
+      if (currentSum === targetSum) {
+        successCount++;
+      }
+    }
+    const probability = (successCount / simulations * 100).toFixed(2);
+    document.getElementById('output').innerHTML += `
+      <p>Probability to get sum ${targetSum} with ${diceCount} dice is ${probability}%.</p>
+    `;
+  </script>
+</body>
+</html>

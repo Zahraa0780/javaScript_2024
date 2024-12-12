@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koirat</title>
+</head>
+<body>
+    <script>
+        let dogs = [];
+        for (let i = 0; i < 6; i++) {
+            dogs.push(prompt(`Anna koiran nimi ${i + 1}:`)); // Use backticks for template literals
+        }
+        dogs.sort().reverse(); // Sort and reverse the array
+
+        let list = "<ul>";
+        dogs.forEach(name => list += `<li>${name}</li>`); // Use backticks here too
+        list += "</ul>";
+        document.body.innerHTML = list;
+    </script>
+</body>
+</html>

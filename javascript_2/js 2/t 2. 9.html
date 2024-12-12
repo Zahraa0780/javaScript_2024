@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>even</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        'use strict';
+
+
+        function even(arr) {
+            const evens = [];
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (element % 2 === 0) { // Check if the element is even
+                    evens.push(element);
+                }
+            }
+            return evens;
+        }
+
+
+        const arr = [2, 7, 4];
+
+
+        const evens = even(arr);
+
+
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = `
+            <p>Original array: ${arr}</p>
+            <p>Even numbers array: ${evens}</p>
+        `;
+    </script>
+</body>
+</html>

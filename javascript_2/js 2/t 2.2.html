@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osallistujat</title>
+</head>
+<body>
+    <script>
+        let participantCount = prompt("Kuinka monta osallistujaa?");
+        let participants = [];
+        for (let i = 0; i < participantCount; i++) {
+            participants.push(prompt(`Anna osallistujan ${i + 1} nimi:`)); // Fixed template literal
+        }
+        participants.sort();
+
+        let list = "<ol>";
+        participants.forEach(name => list += `<li>${name}</li>`); // Fixed template literal
+        list += "</ol>";
+        document.body.innerHTML = list;
+    </script>
+</body>
+</html>

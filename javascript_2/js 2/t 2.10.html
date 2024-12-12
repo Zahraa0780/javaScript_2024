@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>candidates</title>
+    <script>
+        'use strict';
+
+
+        function compare(a, b) {
+            return b.votes - a.votes;
+        }
+
+        async function main() {
+
+            const count = parseInt(await promptUser('Enter the number of the candidates'), 10);
+            const candidates = [];
+
+
+            for (let i = 0; i < count; i++) {
+                const nimi = await promptUser(`Name for candidate ${i + 1}`);
+                candidates.push({ name: nimi, votes: 0 });
+            }
+
+
+            const votersCount = parseInt(await promptUser('Enter voters count'), 10);
+
+
+            for (let i = 0; i < votersCount; i++) {
+                const candidateName = await promptUser('To whom you are giving your vote to?');
+                const index = candidates.findIndex(candidate => candidate.name === candidateName);
+                if (index !== -1) {
+                    candidates[index].votes++;
+                } else {
+                    alert('Candidate not found. Please enter a valid name.');
+                }
+            }
+
+
+            candidates.sort(compare);
+            console.log(`The winner is ${candidates[0].name} with ${candidates[0].votes} votes.`);
+            console.log('Results:');
+            candidates.forEach(candidate => console.log(`${candidate.name}: ${candidate.votes} votes`));
+        }
+
+
+        function promptUser(message) {
+            return new Promise((resolve) => {
+                const input = prompt(message);
+                resolve(input);
+            });
+        }
+
+
+        main();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

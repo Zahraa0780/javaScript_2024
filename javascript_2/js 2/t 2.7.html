@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heittoNoppa</title>
+</head>
+<body>
+    <ul id="ul"></ul> <!-- Add this unordered list element -->
+
+    <script>
+        'use strict';
+
+        function heittoNoppa() {
+            return Math.floor(Math.random() * 6 + 1);
+        }
+
+        let result = 0;
+        let myStr = "";
+
+        while (result !== 6) {
+            result = heittoNoppa();
+            myStr += `<li>${result}</li>`;
+        }
+
+        const parentList = document.querySelector('#ul');
+        parentList.innerHTML = myStr;
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerot Järjestyksessä</title>
+</head>
+<body>
+    <script>
+        let numbers = [];
+        let num;
+        do {
+            num = Number(prompt("Anna numero (0 lopettaa):"));
+            if (num !== 0 && !isNaN(num)) numbers.push(num); // Ensure valid number and non-zero
+        } while (num !== 0);
+
+        numbers.sort((a, b) => b - a); // Sort in descending order
+        let result = "<ul>";
+        numbers.forEach(n => result += `<li>${n}</li>`); // Use backticks for template literal
+        result += "</ul>";
+        document.body.innerHTML = result;
+    </script>
+</body>
+</html>
