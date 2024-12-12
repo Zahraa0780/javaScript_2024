@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppi Kaksoissyötteessä</title>
+</head>
+<body>
+    <script>
+        let numbers = [];
+        let num;
+
+        while (true) {
+            num = Number(prompt("Anna numero:"));
+            if (isNaN(num)) {
+                alert("Syötä kelvollinen numero.");
+                continue;
+            }
+            if (numbers.includes(num)) {
+                alert("Tämä numero on jo syötetty. Lopetetaan.");
+                break;
+            }
+            numbers.push(num);
+        }
+
+        numbers.sort((a, b) => a - b);
+        let result = "<ul>";
+        numbers.forEach(n => result += `<li>${n}</li>`); // Fixed template literal
+        result += "</ul>";
+        document.body.innerHTML = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nopanheitto</title>
+</head>
+<body>
+    <script>
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1; // Roll a number between 1 and 6
+        }
+
+        let rolls = [];
+        let roll;
+        do {
+            roll = rollDice(); // Roll the dice
+            rolls.push(roll); // Add the roll to the list
+        } while (roll !== 6); // Continue until a 6 is rolled
+
+        let list = "<ul>";
+        rolls.forEach(r => list += `<li>${r}</li>`); // Use backticks for the template literal
+        list += "</ul>";
+        document.body.innerHTML = list; // Display the result
+    </script>
+</body>
+</html>
