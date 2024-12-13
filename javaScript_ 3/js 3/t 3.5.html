@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5 Solution</title>
+</head>
+<body>
+    <section id="image-gallery"></section>
+
+    <script>
+        function populateGallery() {
+            const galleryElement = document.getElementById('image-gallery');
+            const picArray = [
+                { title: 'Sunset Beach', src: 'sunset-beach-medium.jpg', alt: 'Sunset Beach', caption: 'A beautiful sunset over the beach' },
+                { title: 'Mountains', src: 'mountains-medium.jpg', alt: 'Mountains', caption: 'Snow-capped peaks under a clear sky' },
+                { title: 'City Lights', src: 'city-lights-medium.jpg', alt: 'City Lights', caption: 'A vibrant city at night' }
+            ];
+
+            picArray.forEach(pic => {
+
+                const article = document.createElement('article');
+                article.classList.add('card');
+
+
+                const heading = document.createElement('h2');
+                heading.textContent = pic.title;
+                article.appendChild(heading);
+
+
+                const figure = document.createElement('figure');
+
+
+                const img = document.createElement('img');
+                img.src = pic.src;
+                img.alt = pic.alt;
+                figure.appendChild(img);
+
+
+                const figcaption = document.createElement('figcaption');
+                figcaption.textContent = pic.caption;
+                figure.appendChild(figcaption);
+
+
+                article.appendChild(figure);
+
+
+                const paragraph = document.createElement('p');
+                paragraph.textContent = `Description: ${pic.caption}`;
+                article.appendChild(paragraph);
+
+
+                galleryElement.appendChild(article);
+            });
+        }
+
+
+        populateGallery();
+    </script>
+</body>
+</html>

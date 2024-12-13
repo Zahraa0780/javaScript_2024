@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        #image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <section id="image-gallery"></section>
+
+    <script>
+        const picArray = [
+            {
+                title: 'Sunset Beach',
+                src: '../../im 1/download.jpg',
+                caption: 'A beautiful sunset over the beach',
+                description: 'Experience the serene beauty of a sunset over a tranquil beach.'
+            },
+            {
+                title: 'Mountains',
+                src: '../../im 2/download.jpg',
+                caption: 'Snow-capped peaks under a clear sky',
+                description: 'Marvel at the majestic snow-covered mountains under a crisp blue sky.'
+            },
+            {
+                title: 'City Lights',
+                src: '../../im 3/download.jpg',
+                caption: 'A vibrant city at night',
+                description: 'Immerse yourself in the vibrant lights of the city after dusk.'
+            }
+        ];
+
+        const galleryElement = document.getElementById('image-gallery');
+
+        picArray.forEach(pic => {
+            const article = document.createElement('article');
+            article.classList.add('card');
+
+            const heading = document.createElement('h2');
+            heading.textContent = pic.title;
+            article.appendChild(heading);
+
+            const figure = document.createElement('figure');
+
+            const img = document.createElement('img');
+            img.src = pic.src;
+            img.alt = pic.title;
+            figure.appendChild(img);
+
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = pic.caption;
+            figure.appendChild(figcaption);
+
+            article.appendChild(figure);
+
+            const paragraph = document.createElement('p');
+            paragraph.textContent = pic.description;
+            article.appendChild(paragraph);
+
+            galleryElement.appendChild(article);
+        });
+    </script>
+</body>
+</html>

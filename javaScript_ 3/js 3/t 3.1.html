@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 Solution</title>
+</head>
+<body>
+    <ul id="target"></ul>
+
+    <script>
+
+        function addItems() {
+
+            const targetElement = document.getElementById('target');
+
+
+            targetElement.innerHTML = `
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            `;
+
+
+            targetElement.classList.add('my-list');
+        }
+
+
+        addItems();
+    </script>
+</body>
+</html>

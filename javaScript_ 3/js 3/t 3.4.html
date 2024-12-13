@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 Solution</title>
+</head>
+<body>
+    <select id="target"></select>
+
+    <script>
+        function addStudentsToSelect() {
+            const targetElement = document.getElementById('target');
+            const students = [
+                { id: '2345768', name: 'John' },
+                { id: '2134657', name: 'Paul' },
+                { id: '5423679', name: 'Jones' }
+            ];
+
+
+            students.forEach(student => {
+
+                const option = document.createElement('option');
+                option.value = student.id;
+                option.textContent = student.name;
+
+
+                targetElement.appendChild(option);
+            });
+        }
+
+
+        addStudentsToSelect();
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        #image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <section id="image-gallery">
+        <article class="card">
+            <h2>Sunset Beach</h2>
+            <img src="../../im 1/download.jpg" height="183"
+                                                                 width="198"/>
+            <p>A beautiful sunset over the beach</p>
+        </article>
+        <article class="card">
+            <h2>Mountains</h2>
+            <img src="../../im 2/download.jpg" height="174" width="290"/>
+            <p>Snow-capped peaks under a clear sky</p>
+        </article>
+        <article class="card">
+            <h2>City Lights</h2>
+            <img src="../../im 3/download.jpg" height="157" width="320"/>
+            <p>A vibrant city at night</p>
+        </article>
+    </section>
+</body>
+</html>

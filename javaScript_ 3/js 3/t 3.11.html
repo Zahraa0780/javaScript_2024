@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11 Solution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        dialog span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+        }
+        dialog img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div id="gallery">
+
+    </div>
+    <dialog id="modal">
+        <span>&#x2715;</span>
+        <img id="modalImage" alt="">
+    </dialog>
+
+    <script>
+
+        const picArray = [
+            { title: 'Title 1', medium: 'images1/medium1.jpg', large: 'images/large1.jpg', caption: 'Caption 1' },
+            { title: 'Title 2', medium: 'images2/medium2.jpg', large: 'images/large2.jpg', caption: 'Caption 2' },
+            { title: 'Title 3', medium: 'images3/medium3.jpg', large: 'images/large3.jpg', caption: 'Caption 3' },
+        ];
+
+
+        function createArticle(pic) {
+            const article = document.createElement('article');
+            article.className = 'card';
+
+            const h2 = document.createElement('h2');
+            h2.textContent = pic.title;
+
+            const figure = document.createElement('figure');
+
+            const img = document.createElement('img');
+            img.src = pic.medium;
+            img.alt = pic.title;
+            figure.appendChild(img);
+
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = pic.caption;
+            figure.appendChild(figcaption);
+
+            article.appendChild(h2);
+            article.appendChild(figure);
+
+
+            article.addEventListener('click', () => openModal(pic.large, pic.title));
+            return article;
+        }
+
+
+        function openModal(imageSrc, altText) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+
+            modalImage.src = imageSrc;
+            modalImage.alt = altText;
+
+            modal.style.display = 'flex';
+            modal.showModal();
+        }
+
+
+        document.querySelector('#modal span').addEventListener('click', () => {
+            const modal = document.getElementById('modal');
+            modal.close();
+        });
+
+
+        const gallery = document.getElementById('gallery');
+        picArray.forEach(pic => {
+            const article = createArticle(pic);
+            gallery.appendChild(article);
+        });
+    </script>
+</body>
+</html>
